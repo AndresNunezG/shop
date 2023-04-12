@@ -1,5 +1,3 @@
-import { UUID } from "crypto"
-
 export function formatCurrency (value: number): string {
   return value.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).replace('$', '')
 }
@@ -28,7 +26,7 @@ export function capitalizeString(value: string): string {
 }
 
 export interface Product {
-  id: UUID
+  id: string;
   name: string;
   unit_price: number;
   stock: number;
@@ -36,8 +34,8 @@ export interface Product {
 
 export interface ProductItemCart {
   name: string;
-  id: UUID;
-  product_id: UUID;
+  id: string;
+  product_id: string;
   unit_price: number;
   total_units: number;
   total_price: number;
@@ -50,7 +48,7 @@ export enum ToastType {
 }
 
 export interface Notification {
-  id: UUID;
+  id: string;
   message: string;
   type: ToastType;
 }
