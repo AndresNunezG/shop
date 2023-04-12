@@ -29,3 +29,12 @@ body {
   padding: 2rem;
   text-align: center;
 }
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
