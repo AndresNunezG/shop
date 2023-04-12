@@ -17,9 +17,10 @@ export const useCart = defineStore('cart', {
     addProductToCart(product: Product, totalUnits: number, updateProduct: ProductItemCart | undefined) {
       if (updateProduct) {
         const updateProductIndex = this.productsCart.findIndex((el) => el.id === updateProduct.id)
+        const newUnits = updateProduct.total_units + totalUnits
         this.productsCart.splice(
           updateProductIndex, 1,
-          {...updateProduct, total_units: updateProduct.total_units + totalUnits}
+          {...updateProduct, total_units: newUnits, total_price: updateProduct.unit_price * newUnits}
         )
       } else {
         this.productsCart.push(
