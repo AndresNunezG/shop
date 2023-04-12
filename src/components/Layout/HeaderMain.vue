@@ -2,7 +2,7 @@
   <header class="header bg-primary-subtle rounded-3 p-3 mb-4 mx-md-3 mx-2">
     <div class="col-12">
       <h3 class="fw-bold fs-5 m-0">
-        <i class="fas fa-shopping-basket text-primary-emphasis"></i>
+        <i @click="changeTheme" class="fas fa-shopping-basket text-primary-emphasis"></i>
         Alternova Shop
       </h3>
       <button
@@ -28,3 +28,14 @@
   }
 }
 </style>
+
+<script setup lang="ts">
+function changeTheme() {
+  const htmlBody = document.querySelector('body')
+  const theme = htmlBody?.dataset.bsTheme
+  const newTheme = theme === 'light' ? 'dark' : 'light'
+  if (htmlBody) {
+    htmlBody.dataset.bsTheme = newTheme
+  }
+}
+</script>
